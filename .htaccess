@@ -1,0 +1,21 @@
+
+# HTID:7097752: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 0
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:7097752:
+
+
+Options -Indexes
+
+
+RewriteEngine on
+RewriteCond %{REQUEST_METHOD} !POST [NC]
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^northwaybicyclestore.000webhostapp.com [NC]
+RewriteRule ^(.*)$ https://northwaybicyclestore.tk/$1 [L,R=301,NC]
